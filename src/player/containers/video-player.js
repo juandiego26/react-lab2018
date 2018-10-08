@@ -5,17 +5,26 @@ import Title from '../components/title'
 import PlayPause from '../components/play-pause'
 import Timer from '../components/timer'
 import Controls from '../components/video-player-controls'
-import FormattedTime from '../../utils/time'
+import { formattedTime }  from '../../utils/time'
+import ProgressBar from '../components/progress-bar'
+import Spinner from '../components/spinner';
+import VolumeControl from '../components/volume'
 
 class VideoPlayer extends Component {
   state = {
     pause: true,
     duration: 0,
-    currentTime: 0
+    currentTime: '0 : 00',
+    timeFloat: 0,
+    durationFloat: 0,
+    loading: false,
+    volume: 1,
+    lastValue: null,
   }
+
   togglePlay = (event) => {
     this.setState({
-      pause: !this.state.pause
+      pause:!this.state.pause
     })
   }
 
@@ -25,20 +34,64 @@ class VideoPlayer extends Component {
     })
   }
 
-  handleLoadedMetadata = event => {
-    this.video = event.target
+  handleLoadedMetadata = (event) => {
+    this.video = event.target;
+    this.video.volume = this.state.volume;
     this.setState({
-      duration: FormattedTime(this.video.duration)
+      duration: formattedTime(this.video.duration),
+      durationFloat: this.video.duration,
+    });
+  }
+
+  handleTimeUpdate = (event) => {
+    // console.log(this.video.currentTime);
+    this.setState({
+      currentTime: formattedTime(this.video.currentTime),
+      timeFloat: this.video.currentTime
     })
   }
 
-  handleTimeUpdate = event => {
-    // console.log(this.video.currentTime)
+  handleProgressChange = (event) => {
+    // event.target.value
+    this.video.currentTime = event.target.value
+  }
+
+  handleSeeking = (event) => {
     this.setState({
-      currentTime: FormattedTime(this.video.currentTime)
+      loading: true,
+    })
+  }
+  handleSeeked = (event) => {
+    this.setState({
+      loading: false,
+    })
+  }
+  handleReady = (event) => {
+    this.setState({
+      loading: false,
     })
   }
 
+  handleVolumeToggle = () => {
+    const lastValue = this.video.volume;
+    this.setState ({lastValue})
+    if (this.video.volume !== 0) {
+      this.video.volume = 0
+      this.setState ({
+        volume: this.video.volume
+      })
+    } else {
+      this.video.volume = this.state.lastValue
+      this.setState ({
+        volume: this.video.volume
+      })
+    }
+  }
+
+  handleVolumeChange = event => {
+    this.video.volume = event.target.value
+    this.setState({ volume: this.video.volume })
+}
   render() {
     return (
       <VideoPlayerLayout>
@@ -54,12 +107,28 @@ class VideoPlayer extends Component {
             duration={this.state.duration}
             currentTime={this.state.currentTime}
           />
+          <ProgressBar
+            value={this.state.timeFloat}
+            max={this.state.durationFloat}
+            handleProgressChange={this.handleProgressChange}
+          />
+          <VolumeControl
+            handleVolumeChange={this.handleVolumeChange}
+            handleVolumeToggle={this.handleVolumeToggle}
+            volume={this.state.volume}
+          />
         </Controls>
+        <Spinner
+          active={this.state.loading}
+        />
         <Video
           autoplay={this.props.autoplay}
           pause={this.state.pause}
           handleLoadedMetadata={this.handleLoadedMetadata}
           handleTimeUpdate={this.handleTimeUpdate}
+          handleSeeking={this.handleSeeking}
+          handleSeeked={this.handleSeeked}
+          handleReady={this.handleReady}
           src="http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
         />
       </VideoPlayerLayout>

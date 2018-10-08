@@ -1,14 +1,14 @@
-'use strict'
+import React from 'react';
 
-const leftPad = number =>
-{
-  const pad = '00'
-  return pad.substring(0, pad.length - number.length) + number
-}
-const FormattedTime = secs => {
-  const minutes = parseInt(secs / 60, 10)
-  const seconds = parseInt(secs % 60 , 10)
-  return`${leftPad(minutes.toString())}:${leftPad(seconds.toString())}`
+// --- Da formato de 00 a un número dado
+export const leftPad = (number) => {
+  const pad = '00';
+  return pad.substring(0, pad.length - number.length) + number;
 }
 
-export default FormattedTime
+// --- Da formato 00 : 00 (min : seg) a una cantidad de segundos dada
+export const formattedTime = (secs) => {
+  const minutes = parseInt(secs / 60, 10);
+  const seconds = parseInt(secs % 60, 10);
+  return `${minutes} : ${leftPad(seconds.toString())}`
+}
