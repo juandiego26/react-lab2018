@@ -17,7 +17,7 @@ module.exports = (env) => {
   }
 
   return {
-    mode: 'development',
+    mode: 'production',
     entry: {
       "home": path.resolve(__dirname, 'src/entries/home.js'),
     },

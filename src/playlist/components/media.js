@@ -14,12 +14,13 @@ class Media extends PureComponent {
   //   // this.handleClick = this.handleClick.bind(this)
   // }
 
-  // handleClick = (event) => {
-  //   // console.log(this.props.image)
-  //   // this.setState({
-  //   //   author: 'Ricardo Celis'
-  //   // })
-  // }
+  handleClick = (event) => {
+    // console.log(this.props.image)
+    // this.setState({
+    //   author: 'Ricardo Celis'
+    // })
+    this.props.openModal(this.props)
+  }
 
   static propTypes = {
     cover: PropTypes.string,
@@ -28,16 +29,16 @@ class Media extends PureComponent {
     type: PropTypes.oneOf(['video', 'audio'])
   }
   render() {
-    // const styles = {
-      //   container: {
-        //     color: '#44546b',
-        //     cursor: 'pointer',
-        //     with: 260,
-        //     border: '1px solid red'
-        //   }
-        // }
+    const styles = {
+        container: {
+            color: '#44546b',
+            cursor: 'pointer',
+            with: 260,
+            border: '1px solid red'
+          }
+        }
     return (
-      <div className="Media" onClick={this.props.handleClick}>
+      <div className="Media" onClick={this.handleClick}>
         <div className="Media-cover">
           <img
             className="Media-image"
