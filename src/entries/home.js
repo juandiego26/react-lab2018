@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import Home from '../pages/containers/home'
 // import Playlist from '../playlist/components/playlist'
-import data from '../api.json'
+import data from '../data/api.json'
 
 //console.log('Hola Mundo!')
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import './search.css'
+import SearchIcon from '../../icons/components/search'
 
 // function Search(props) {
 //   return (
@@ -8,20 +9,28 @@ import './search.css'
 // }
 
 const Search = (props) => (
-  <form
-    className="Search"
-    onSubmit={props.handleSubmit}
-  >
-    <input
-      ref={props.setRef}
-      type="text"
-      placeholder="Busca tu video favorito"
-      className="Search-input"
-      name="search"
-      onChange={props.handleChange}
-      value={props.value}
-    />
-  </form>
+
+  <div className="Search">
+    <form
+      onSubmit={props.handleSubmit}
+    >
+      <input
+        ref={props.setRef}
+        type="text"
+        placeholder="Busca tu video favorito"
+        className="Search-input"
+        name="search"
+        onChange={props.handleChange}
+        value={props.value}
+      />
+      <button className="Search-button">
+        <SearchIcon
+          size={20}
+          color="#44546b"
+        />
+      </button>
+    </form>
+  </div>
 )
 
 export default Search
