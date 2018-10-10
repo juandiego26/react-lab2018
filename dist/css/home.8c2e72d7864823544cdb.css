@@ -99,6 +99,16 @@ body {
   box-shadow: 0 0 10px rgba(0,0,0,.5);
 }
 
+.Search-button {
+  position: relative;
+  margin: -76px 0 0 400px;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  height: 35px;
+  vertical-align: middle;
+}
+
 .Related {
   width: 300px;
 }
