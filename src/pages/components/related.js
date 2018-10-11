@@ -9,7 +9,7 @@ function Related(props) {
   return (
     <div className="Related">
       <div>
-        <img src="./dist/images/logo.c06f5e5a2ae47006c0b77be4de6a2077.png"/>
+        <img className="Related-logo" src="./dist/images/logo.c06f5e5a2ae47006c0b77be4de6a2077.png"/>
         {/* <img
           className="Related-logo"
           src={logo}
