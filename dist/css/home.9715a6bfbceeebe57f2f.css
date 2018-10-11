@@ -72,11 +72,17 @@ body {
 }
 
 .Categories {
+  margin-left: 300px;
+  background-color: #FFF;
   overflow: hidden;
-  padding: 20px 0 20px 20px;
-  background: white;
+  width: Calc(100vw - 300px);
+  flex-direction: column;
 }
-
+.Categories-header {
+  width: inherit;
+  display: flex;
+  flex-direction: row;
+}
 .Search {
   max-width: 400px;
   margin-bottom: 20px;
@@ -109,14 +115,168 @@ body {
   vertical-align: middle;
 }
 
+/*
+.Search {
+  width: inherit;
+}
+.Search-input {
+  margin: 1.5rem 0 1.5rem 1rem;
+  padding: .5rem 1rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 1.1rem;
+  width: 400px;
+  color: #555;
+  background-color: #f0f0f0;
+  box-shadow: 1px 1px 3px rgba(0,0,0,.2) inset;
+  padding-right: 35px;
+}
+.Search-input:hover, .Search-input:focus {
+  background-color: #e7e7e7;
+}
+.Search-button {
+  cursor: pointer;
+  position: relative;
+  margin-left: -37px;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  height: 35px;
+  vertical-align: middle;
+} */
+
+.UserInfo {
+  width: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  margin: -10px 36px 0px;
+}
+.UserInfo-chevron {
+  vertical-align: middle;
+  margin-top: 2.25rem;
+  float: right;
+}
+.UserInfo-avatar .Avatar{
+  margin: 1.5rem .75rem 0 .75rem;
+  float: right;
+}
+.UserInfo-name {
+  margin-top: 2.25rem;
+  margin-right: 2rem;
+  float: right;
+}
+.Avatar {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  float: left;
+  margin-right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+}
+
 .Related {
+  position: fixed;
   width: 300px;
+  display: flex;
+  left: 0;
+  top: 0;
+  flex-direction: column;
+  background-color: #171B2F;
+  max-height: 100vh;
+  height: inherit;
 }
 
 .Related-logo {
   margin: 1rem 0 0 5px;
+  width: 250px;
+  height: 75px;
+}
+
+
+/* .Related {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  top: 0;
+  width: 300px;
+  max-height: 100vh;
+  height: inherit;
+  background-color: #171B2F;
+}
+.Related-logo {
+  margin: 1rem 0 0 5px;
   width: 260px;
   height: 75px;
+} */
+
+
+
+
+.MyFriends {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* font-family: monospace, 'sans-serif'; */
+  color: #FFF;
+}
+.MyFriends-title {
+  margin: .5rem;
+  margin-left: 1rem;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+.Friend {
+  display: block;
+  margin: .5rem;
+}
+
+.Friend-nombre {
+  vertical-align: middle;
+  font-size: .9rem;
+  line-height: 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: inherit;
+}
+.Scroller {
+  height: inherit;
+  overflow: hidden;
+}
+.Scroller:focus, .Scroller:hover {
+  overflow-y: auto;
+}
+
+.MyPlaylist {
+  display: flex;
+  flex-direction: column;
+  color: #FFF;
+}
+.MyPlaylist-title{
+  margin: .5rem;
+  margin-left: 1rem;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+.MyPlaylist-item {
+  margin: .5rem 0 .5rem 1rem;
+  font-size: .85rem;
+  white-space: nowrap;
+}
+.MyPlaylist-itemPosition {
+  display: inline-block;
+  font-weight: bold;
+  width: 33px;
+  vertical-align: top;
+}
+.MyPlaylist-itemTitle {
+  display: inline-block;
+  line-height: 1.25rem;
+  white-space: normal;
+  width: 230px;
 }
 
 .Modal {

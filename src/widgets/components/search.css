@@ -1,9 +1,9 @@
 .Search {
-  max-width: 400px;
-  margin-bottom: 20px;
+  width: inherit
 }
 
 .Search-input {
+  margin: 1.5rem 0 1.5rem 1rem;
   background: #f2f2f2;
   padding: 20px;
   font-size: 18px;
@@ -22,11 +22,11 @@
 
 .Search-button {
   position: relative;
-  margin: -76px 0 0 400px;
   background-color: transparent;
   border: 0;
   outline: none;
-  height: 35px;
+  height: 25px;
+  bottom: 21px;
   vertical-align: middle;
 }
 
