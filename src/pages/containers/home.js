@@ -36,6 +36,7 @@ class Home extends Component {
           />
           <Categories
             categories={this.props.data.categories}
+            myUserInfo={this.props.extras.myUserInfo}
             handleOpenModal={this.handleOpenModal}
           />
           {
