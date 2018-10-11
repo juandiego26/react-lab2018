@@ -1,6 +1,5 @@
 .UserInfo {
   width: inherit;
-  cursor: pointer;
   white-space: nowrap;
   margin: -10px 36px 0px;
 }
@@ -8,10 +7,12 @@
   vertical-align: middle;
   margin-top: 2.25rem;
   float: right;
+  cursor: pointer;
 }
 .UserInfo-avatar .Avatar{
   margin: 1.5rem .75rem 0 .75rem;
   float: right;
+  cursor: pointer;
 }
 .UserInfo-name {
   margin-top: 2.25rem;
